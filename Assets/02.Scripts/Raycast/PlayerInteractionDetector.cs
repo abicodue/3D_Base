@@ -34,6 +34,11 @@ public class PlayerInteractionDetector : MonoBehaviour
         {
             Debug.DrawRay(_ray.origin, _ray.direction * hit.distance, Color.green);
 
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+            {
+                return null;
+            }
+
             return hit.collider.gameObject;
         }
 

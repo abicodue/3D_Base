@@ -25,15 +25,15 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     private void OnEnable()
     {
-        attack.performed += OverlabSphereAttack;
+        attack.performed += OverlapSphereAttack;
     }
 
     private void OnDisable()
     {
-        attack.performed -= OverlabSphereAttack;
+        attack.performed -= OverlapSphereAttack;
     }
 
-    private void OverlabSphereAttack(InputAction.CallbackContext _)
+    private void OverlapSphereAttack(InputAction.CallbackContext _)
     {
         
         
@@ -56,9 +56,10 @@ public class PlayerMeleeAttack : MonoBehaviour
                 Attacker = transform
             };
 
-            hc.ApplyDamage(in damage);            
-            
             Debug.Log($"[NonAlloc Hit] {results[i].name}");
+
+            hc.ApplyDamage(in damage);
+            
         }
 
     }

@@ -379,17 +379,35 @@ namespace StarterAssets
             GameObject target = _interactionDetector != null ? _interactionDetector.CurrentTarget : null;
 
             if (_input.interact)
-            {
+            {                
+
                 // 현재 Raycast로 보고 있는 대상이 NPC면
                 if (target != null && target.CompareTag("NPC"))
                 {
+                    Debug.Log($"interacted with {target.name}");
                     _animator.SetTrigger(_animIDInteract);
                 }
                 // 현재 Raycast로 보고 있는 대상이 Herb나 Chest면
-                else if (target != null && (target.CompareTag("Herb") || target.CompareTag("Chest")))
+                else if (target != null && target.CompareTag("Herb"))
                 {
+                    Debug.Log($"interacted with {target.name}");
                     _animator.SetTrigger(_animIDLoot);
-                }                 
+                }
+                else if (target != null && target.CompareTag("Chest"))
+                {
+                    ChestInteractable chest = target.GetComponentInParent<ChestInteractable>();
+
+                    if (chest != null && chest.TryOpen())
+                    {
+                        Debug.Log($"interacted with {target.name}");
+                        _animator.SetTrigger(_animIDLoot);
+                    }
+                    else
+                    {
+                        Debug.Log($"already interacted with {target.name}");
+                    }                       
+
+                }
 
                 _input.interact = false;
             }
