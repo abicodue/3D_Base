@@ -78,6 +78,9 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [SerializeField]
+        private PlayerInteractionDetector _interactionDetector;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -101,6 +104,7 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
         private int _animIDAttack;
+        private int _animIDInteract;
         private int _animIDLoot;
 
 #if ENABLE_INPUT_SYSTEM 
@@ -144,6 +148,8 @@ namespace StarterAssets
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
+            _interactionDetector = GetComponent<PlayerInteractionDetector>();
+
 #if ENABLE_INPUT_SYSTEM 
             _playerInput = GetComponent<PlayerInput>();
 #else
@@ -180,6 +186,7 @@ namespace StarterAssets
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
             _animIDAttack = Animator.StringToHash("Attack");
+            _animIDInteract = Animator.StringToHash("Interact");
             _animIDLoot = Animator.StringToHash("Loot");
         }
 
@@ -369,10 +376,22 @@ namespace StarterAssets
                 _input.attack = false;
             }
 
-            if (_input.loot)
+            GameObject target = _interactionDetector != null ? _interactionDetector.CurrentTarget : null;
+
+            if (_input.interact)
             {
-                _animator.SetTrigger(_animIDLoot);
-                _input.loot = false;
+                // 현재 Raycast로 보고 있는 대상이 NPC면
+                if (target != null && target.CompareTag("NPC"))
+                {
+                    _animator.SetTrigger(_animIDInteract);
+                }
+                // 현재 Raycast로 보고 있는 대상이 Herb나 Chest면
+                else if (target != null && (target.CompareTag("Herb") || target.CompareTag("Chest")))
+                {
+                    _animator.SetTrigger(_animIDLoot);
+                }                 
+
+                _input.interact = false;
             }
 
         }

@@ -52,11 +52,17 @@ namespace SystemicOverload.Combat
             }
 
             currentHealth = Mathf.Max(0.0f, currentHealth - appliedAmount);
+
+            string attackerName = payload.Attacker.name;
+
+            Debug.Log($"{attackerName} hit {gameObject.name} {appliedAmount} physical. HP: {currentHealth}/{maxHealth}");
+
             Damaged?.Invoke(appliedAmount, currentHealth);
 
             if (currentHealth <= 0.0f)
             {
                 Died?.Invoke();
+                gameObject.SetActive(false);
             }
         }
 
