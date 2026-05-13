@@ -2,7 +2,7 @@ using SystemicOverload.Combat;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMeleeAttack : MonoBehaviour
+public class PlayerMeleeAttackDetector : MonoBehaviour
 {
     [SerializeField]
     private Transform attackPoint;
@@ -10,11 +10,24 @@ public class PlayerMeleeAttack : MonoBehaviour
     private LayerMask hittableMask;
     [SerializeField]
     private float radius = 2.0f;
+    [SerializeField]
+    private PlayerMeleeHitHandler meleeHitHandler;
 
     private PlayerInput pi;
     private InputAction attack;
 
     private Collider[] results = new Collider[10];
+
+    private void OnDrawGizmos()
+    {
+        if (attackPoint == null)
+        {
+            return;
+        }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, radius);
+    }
 
     private void Awake()
     {
@@ -35,9 +48,6 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     private void OverlapSphereAttack(InputAction.CallbackContext _)
     {
-        
-        
-
         int count = Physics.OverlapSphereNonAlloc(attackPoint.position, radius, results, hittableMask, QueryTriggerInteraction.Ignore);
 
         for (int i = 0; i < count; i++)
@@ -50,6 +60,9 @@ public class PlayerMeleeAttack : MonoBehaviour
                 continue;
             }
 
+            meleeHitHandler.HandleMeleeHit(hc, results[i]);
+
+            /*
             DamagePayload damage = new DamagePayload
             {
                 Amount = 20f,
@@ -59,22 +72,10 @@ public class PlayerMeleeAttack : MonoBehaviour
             Debug.Log($"[NonAlloc Hit] {results[i].name}");
 
             hc.ApplyDamage(in damage);
+            */
             
         }
 
     }
-
-    private void OnDrawGizmos()
-    {
-        if (attackPoint == null)
-        {
-            return;
-        }
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, radius);
-    }
-
-
 
 }

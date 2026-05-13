@@ -79,7 +79,7 @@ namespace StarterAssets
         public bool LockCameraPosition = false;
 
         [SerializeField]
-        private PlayerInteractionDetector _interactionDetector;
+        private PlayerInteractionDetector _interactionDetector;       
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -106,6 +106,7 @@ namespace StarterAssets
         private int _animIDAttack;
         private int _animIDInteract;
         private int _animIDLoot;
+        private int _animIDFire;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -188,6 +189,7 @@ namespace StarterAssets
             _animIDAttack = Animator.StringToHash("Attack");
             _animIDInteract = Animator.StringToHash("Interact");
             _animIDLoot = Animator.StringToHash("Loot");
+            _animIDFire = Animator.StringToHash("Fire");
         }
 
         private void GroundedCheck()
@@ -376,6 +378,12 @@ namespace StarterAssets
                 _input.attack = false;
             }
 
+            if (_input.fire)
+            {
+                _animator.SetTrigger(_animIDFire);
+                _input.fire = false;
+            }
+
             GameObject target = _interactionDetector != null ? _interactionDetector.CurrentTarget : null;
 
             if (_input.interact)
@@ -407,7 +415,8 @@ namespace StarterAssets
                         Debug.Log($"already interacted with {target.name}");
                     }                       
 
-                }
+                }           
+
 
                 _input.interact = false;
             }

@@ -272,7 +272,7 @@
                 {
                     "name": "",
                     "id": "24df808e-51cd-4d00-a5df-b88547325758",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
