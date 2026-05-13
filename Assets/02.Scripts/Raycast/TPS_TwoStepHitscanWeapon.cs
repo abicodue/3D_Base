@@ -23,6 +23,16 @@ public class TPS_TwoStepHitscanWeapon : MonoBehaviour
     private float shotRadius;
     [SerializeField]
     private TPS_TwoStepHit tpsHitPrefab;
+    [SerializeField]
+    private SimpleObjectPool bulletPool;
+    [SerializeField]
+    private float bulletSpeed = 3f;
+    [SerializeField]
+    private float bulletLifeTime = 3f;
+    [SerializeField]
+    private float damageAmount = 10f;
+
+
 
     private bool checkMuzzleBlocked = true;
 
@@ -146,6 +156,19 @@ public class TPS_TwoStepHitscanWeapon : MonoBehaviour
         return Physics.CheckSphere(muzzle.position, muzzleBlockRadius, muzzleBlockMask, QueryTriggerInteraction.Ignore);
     }
 
+    private void LogAimAndShot(AimResult aimResult, ShotResult shotResult)
+    {
+        string aimName = aimResult.didHit && aimResult.hit.collider != null
+            ? aimResult.hit.collider.name
+            : "Null";
+
+        string shotName = shotResult.didHit && shotResult.hit.collider != null
+            ? shotResult.hit.collider.name
+            : "Null";
+
+        Debug.Log($"Camera Aim : {aimName} / Shot Aim : {shotName}");
+    }
+
     public void Fire(InputAction.CallbackContext _)
     {
         if (aimCamera == null || muzzle == null)
@@ -165,9 +188,34 @@ public class TPS_TwoStepHitscanWeapon : MonoBehaviour
 
         DrawDebugRays(aimResult, shotResult);
 
+        // 즉시타격 방식 != 오브젝트풀링 X
+        /*
         if (shotResult.didHit && tpsHitPrefab != null)
         {
             tpsHitPrefab.HandleHit(shotResult.hit, aimResult);
+        }
+        */
+
+        LogAimAndShot(aimResult, shotResult);
+
+        GameObject newBullet = bulletPool.GetObject();
+
+        newBullet.transform.SetPositionAndRotation(muzzle.position, Quaternion.LookRotation(shotResult.direction));
+
+        TPS_TwoStepHit bullet = newBullet.GetComponent<TPS_TwoStepHit>();
+
+        if (bullet != null)
+        {
+            string aimName = aimResult.didHit ? aimResult.hit.collider.name : "Null";
+            Transform attacker = pi != null ? pi.transform : transform.root;
+
+            bullet.Init(
+                bulletPool, 
+                shotResult.direction, 
+                bulletSpeed, 
+                bulletLifeTime, 
+                damageAmount,
+                attacker);
         }
 
     }
