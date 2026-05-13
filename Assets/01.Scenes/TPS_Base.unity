@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 688068678}
   - component: {fileID: 688068677}
   - component: {fileID: 688068676}
+  - component: {fileID: 688068679}
   m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
@@ -727,6 +728,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688068674}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &688068679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688068674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da32a735ed744e4fa45fec6de83f1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TPS_TwoStepHitscanWeapon
+  aimCamera: {fileID: 3046780153958382123}
+  aimRange: 20
+  aimMask:
+    serializedVersion: 2
+    m_Bits: 896
+  shotMask:
+    serializedVersion: 2
+    m_Bits: 896
+  muzzleBlockMask:
+    serializedVersion: 2
+    m_Bits: 768
+  muzzleBlockRadius: 0.5
+  muzzle: {fileID: 285365909}
+  shotRange: 20
+  shotRadius: 0
+  tpsHitPrefab: {fileID: 7497526697142516538, guid: 145840627e2c62c4f8f6a2c82deff04b, type: 3}
 --- !u!1 &697948582
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,8 +3814,6 @@ GameObject:
   - component: {fileID: 9065173779897644972}
   - component: {fileID: 9065173779897644973}
   - component: {fileID: 9065173779897644974}
-  - component: {fileID: 9065173779897644976}
-  - component: {fileID: 9065173779897644975}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -6085,48 +6112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMeleeHitHandler
   damageAmount: 20
---- !u!114 &9065173779897644975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3983335681485098834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b46ce7f91678ef429049aeadfa41856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerRangeHitHandler
-  damageAmount: 10
-  hitEffectPrefab: {fileID: 0}
---- !u!114 &9065173779897644976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3983335681485098834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da32a735ed744e4fa45fec6de83f1d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerRangeAttackDetector
-  aimCamera: {fileID: 3046780153958382123}
-  aimRange: 20
-  aimMask:
-    serializedVersion: 2
-    m_Bits: 1920
-  shotMask:
-    serializedVersion: 2
-    m_Bits: 640
-  muzzleBlockMask:
-    serializedVersion: 2
-    m_Bits: 512
-  muzzleBlockRadius: 0.5
-  muzzle: {fileID: 285365909}
-  shotRange: 20
-  shotRadius: 0
-  rangeHitHandler: {fileID: 9065173779897644975}
 --- !u!23 &9102376964654609776
 MeshRenderer:
   m_ObjectHideFlags: 0

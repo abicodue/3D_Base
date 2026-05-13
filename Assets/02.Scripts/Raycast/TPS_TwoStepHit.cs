@@ -1,7 +1,7 @@
 using SystemicOverload.Combat;
 using UnityEngine;
 
-public class PlayerRangeHitHandler : MonoBehaviour
+public class TPS_TwoStepHit : MonoBehaviour
 {
     [SerializeField]
     private float damageAmount = 10f;
