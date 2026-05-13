@@ -206,7 +206,6 @@ public class TPS_TwoStepHitscanWeapon : MonoBehaviour
 
         if (bullet != null)
         {
-            string aimName = aimResult.didHit ? aimResult.hit.collider.name : "Null";
             Transform attacker = pi != null ? pi.transform : transform.root;
 
             bullet.Init(
