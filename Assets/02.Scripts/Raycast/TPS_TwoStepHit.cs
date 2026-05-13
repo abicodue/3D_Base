@@ -6,18 +6,12 @@ public class TPS_TwoStepHit : MonoBehaviour
     [SerializeField]
     private float damageAmount = 10f;
     [SerializeField]
-    private GameObject hitEffectPrefab;
-    [SerializeField]
-    private Transform attacker;
-    [SerializeField]
-    private SimpleObjectPool bulletPool;
-    [SerializeField]
-    private Vector3 moveDirection;
-    [SerializeField]
-    private float moveSpeed;
-    [SerializeField]
-    private float lifeTime;
-    [SerializeField]
+    private GameObject hitEffectPrefab;    
+    
+    private Transform attacker;    
+    private SimpleObjectPool bulletPool;    
+    private Vector3 moveDirection;    
+    private float moveSpeed;    
     private float lifeTimer;
 
     private bool isReturned;
