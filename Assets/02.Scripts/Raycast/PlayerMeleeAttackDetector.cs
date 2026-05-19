@@ -18,7 +18,7 @@ public class PlayerMeleeAttackDetector : MonoBehaviour
 
     private Collider[] results = new Collider[10];
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
         {

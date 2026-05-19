@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+
+[CreateAssetMenu(
+    fileName = "Item_New",
+    menuName = "RPG Data/Item Data")]
+public class ItemData : ScriptableObject
+{
+    public string itemId;
+    public string itemName;
+    public ItemType itemType;
+    public Sprite icon;
+
+    [TextArea]
+    public string description;
+
+    [Header("경제 정보")]
+    public int buyPrice;
+    public int sellPrice;
+
+    [Header("사용 여부")]
+    public bool canUse;
+
+    public bool canStack;
+    public int maxStackCount = 99;
+
+    [Header("사용 효과")]
+    public List<ItemEffect> effects = new List<ItemEffect>();
+
+    public AssetReferenceGameObject worldPrefab;
+
+}

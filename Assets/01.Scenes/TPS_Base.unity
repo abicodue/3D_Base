@@ -951,6 +951,68 @@ Transform:
   - {fileID: 688068675}
   m_Father: {fileID: 8193124047437145543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &735852804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735852806}
+  - component: {fileID: 735852805}
+  - component: {fileID: 735852807}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &735852805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735852804}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98695fc0f98d9164084ceeb74adb1080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDataTester
+  itemData: {fileID: 0}
+--- !u!4 &735852806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735852804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.77025, y: 0, z: 4.1879}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &735852807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735852804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c57790df960c94081efd559fa5bdcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponTester
+  weapons:
+  - {fileID: 11400000, guid: ab1fce466994fd14a9ccb0ea3c63c608, type: 2}
+  - {fileID: 11400000, guid: 1b42bac0b6843304eafd2a4d86a2fe39, type: 2}
+  - {fileID: 11400000, guid: a3f6f45c6171df840b9711f91888efcc, type: 2}
 --- !u!1 &805813243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,6 +1980,51 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8, y: 1, z: 8}
   m_LocalScale: {x: 8, y: 2, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1306942808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1306942810}
+  - component: {fileID: 1306942809}
+  m_Layer: 0
+  m_Name: AssetLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1306942809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306942808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05eb34f6f76391542a264766b5a9033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
+  itemData: {fileID: 0}
+--- !u!4 &1306942810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306942808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.02836, y: 5.11307, z: 2.98604}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3896,6 +4003,9 @@ GameObject:
   - component: {fileID: 9065173779897644972}
   - component: {fileID: 9065173779897644973}
   - component: {fileID: 9065173779897644974}
+  - component: {fileID: 9065173779897644975}
+  - component: {fileID: 9065173779897644976}
+  - component: {fileID: 9065173779897644977}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -6194,6 +6304,155 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMeleeHitHandler
   damageAmount: 20
+--- !u!114 &9065173779897644975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983335681485098834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e270effec2562240819e756bc4273b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
+  maxHp: 100
+  currentHp: 50
+  maxMp: 50
+  currentMp: 10
+  attack: 10
+  defense: 5
+  gold: 0
+--- !u!114 &9065173779897644976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983335681485098834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494b65a796c8d6c41a65d2e7a71f9299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemUseTester
+  playerStatus: {fileID: 9065173779897644975}
+  itemToUse: {fileID: 0}
+  useItemAction:
+    m_Name: UseItem
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: b681cfe5-5c99-4e28-94f3-be1edd0e8f5e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 72e7c404-2164-4f0a-ad56-9cafcdd45bcd
+      m_Path: <Keyboard>/u
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: UseItem
+      m_Flags: 0
+    m_Flags: 0
+--- !u!114 &9065173779897644977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983335681485098834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52743ac7cad0a54bb6ba1da3d37008b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponController
+  weapons:
+  - {fileID: 11400000, guid: ab1fce466994fd14a9ccb0ea3c63c608, type: 2}
+  equipWeapon1Action:
+    m_Name: EquipWEapon1
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: d59ad25b-2b26-42c7-bae6-5ad643bca21d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e135d00e-f48e-4dbc-a8b4-a82824ef2b8d
+      m_Path: <Keyboard>/1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: EquipWEapon1
+      m_Flags: 0
+    m_Flags: 0
+  equipWeapon2Action:
+    m_Name: EquipWEapon2
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: b4eae929-e69a-4c11-8671-411ba83b93a1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: f31bc7b4-ec47-4b02-be49-807e5ce7484e
+      m_Path: <Keyboard>/2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: EquipWEapon2
+      m_Flags: 0
+    m_Flags: 0
+  equipWeapon3Action:
+    m_Name: EquipWEapon3
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: d2ab6616-af6a-4430-ade6-cde37b5dd1e2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6b970304-7125-4874-94c3-f7512461818b
+      m_Path: <Keyboard>/3
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: EquipWEapon3
+      m_Flags: 0
+    m_Flags: 0
+  attackAction:
+    m_Name: Attack
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 9fffb235-eb7e-4bb1-99d1-224eb119ff14
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8b8b94f6-4edc-44e5-bd53-8b043d8e34b9
+      m_Path: <Mouse>/LeftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
+    m_Flags: 0
+  reloadAction:
+    m_Name: Reload
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: d2c88fde-396b-44df-9d37-2bfcc3bfa676
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 85230391-c697-44d6-a082-f9007136b38a
+      m_Path: <Keyboard>/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Reload
+      m_Flags: 0
+    m_Flags: 0
 --- !u!23 &9102376964654609776
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6328,3 +6587,5 @@ SceneRoots:
   - {fileID: 1131023481}
   - {fileID: 996137434}
   - {fileID: 1467881516}
+  - {fileID: 735852806}
+  - {fileID: 1306942810}
