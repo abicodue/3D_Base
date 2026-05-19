@@ -36,17 +36,14 @@ public class BSTManager : MonoBehaviour
 
     private List<Node> allNodes = new List<Node>();
 
-    // Linear Search 비교용 List
     private List<int> linearDataList = new List<int>();
 
     private void Start()
     {
         int[] values = { 50, 30, 70, 20, 40, 60, 80 };
 
-        // Linear Search용 List에도 같은 데이터 저장
         linearDataList = new List<int>(values);
 
-        // BST에도 같은 데이터 삽입
         foreach (int value in values)
         {
             Insert(value);
@@ -83,7 +80,6 @@ public class BSTManager : MonoBehaviour
                 {
                     Node newNode = new Node(newValue);
 
-                    // 중요: new Node(newValue)를 또 만들지 말고, newNode를 연결해야 함
                     current.left = newNode;
 
                     Vector3 newPosition = current.position + new Vector3(-xOffset, -verticalGap, 0f);
@@ -103,7 +99,6 @@ public class BSTManager : MonoBehaviour
                 {
                     Node newNode = new Node(newValue);
 
-                    // 중요: new Node(newValue)를 또 만들지 말고, newNode를 연결해야 함
                     current.right = newNode;
 
                     Vector3 newPosition = current.position + new Vector3(xOffset, -verticalGap, 0f);
@@ -125,7 +120,6 @@ public class BSTManager : MonoBehaviour
         }
     }
 
-    // 버튼에서 호출할 함수
     public void SearchFromInput()
     {
         if (searchInput == null)
@@ -144,7 +138,6 @@ public class BSTManager : MonoBehaviour
         }
     }
 
-    // 과제 요구사항의 Search(int targetValue)
     public void Search(int targetValue)
     {
         if (root == null)
@@ -160,10 +153,8 @@ public class BSTManager : MonoBehaviour
 
         ResetNodeColors();
 
-        // 1. Linear Search 비교 횟수 계산
         bool linearFound = LinearSearch(targetValue, out int linearComparisons);
 
-        // 2. BST Search는 시각적으로 천천히 진행
         searchCoroutine = StartCoroutine(BSTSearchCompareRoutine(targetValue, linearFound, linearComparisons));
     }
 
