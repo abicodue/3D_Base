@@ -47,7 +47,7 @@ public class ItemUseTester : MonoBehaviour
             ApplyEffect(effect);
         }
     }
-
+    
     private void ApplyEffect(ItemEffect effect)
     {
         switch (effect.effectType)
