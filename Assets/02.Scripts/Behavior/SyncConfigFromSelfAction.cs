@@ -15,7 +15,7 @@ using Unity.Properties;
 // - category: 노드 생성 메뉴에서의 폴더 경로입니다.
 // - id: 노드의 고유 식별자입니다. 코드를 복사해서 새 노드를 만들 때 이 ID가 겹치지 않도록 주의해야 합니다.
 [NodeDescription(name: "Sync Config From Self",
-   story: "Self, AttackRange, DetectRadius, ChaseSpeed, PatrolSpeed, [AttackCooldown]", category: "Action/AI",
+   story: "[Self] updates config", category: "Action/AI",
    id: "3d1195a33dc4f6768f7f38e6dab1d341")]
 // Unity Behavior 시스템이 추가적인 코드를 백그라운드에서 자동 생성하므로 반드시 'partial' 클래스로 선언해야 합니다.
 // 행동(Action)을 수행하는 리프(Leaf) 노드이므로 Action 클래스를 상속받습니다.

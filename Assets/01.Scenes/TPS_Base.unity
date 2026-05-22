@@ -454,8 +454,7 @@ MonoBehaviour:
   m_Graph: {fileID: -9142697911669515784, guid: 2003769fb0f06bb48bd0bc11264d5bb1, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302084002511847625
-  - rid: 8302084002511847732
-  - rid: 8302084002511847733
+  - rid: 8302084049353834926
   m_OriginalGraph: {fileID: -9142697911669515784, guid: 2003769fb0f06bb48bd0bc11264d5bb1, type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -470,22 +469,14 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 439621354}
-    - rid: 8302084002511847732
+    - rid: 8302084049353834926
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 3032011258926474004
-          m_Value1: 10612005137269144799
-        Name: Target
-        m_Value: {fileID: 3983335681485098834}
-    - rid: 8302084002511847733
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11369005677680986263
-          m_Value1: 18087013361340114506
-        Name: Speed
-        m_Value: 5
+          m_Value0: 7367267008785365025
+          m_Value1: 6100154138184194354
+        Name: Self
+        m_Value: {fileID: 439621354}
 --- !u!195 &439621356
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2278,7 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05eb34f6f76391542a264766b5a9033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: f2f495ecaf7bcaf4d9ca5fbc6d40c60b, type: 2}
 --- !u!4 &1306942810
 Transform:
   m_ObjectHideFlags: 0

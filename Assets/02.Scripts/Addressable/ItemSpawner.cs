@@ -11,6 +11,18 @@ public class ItemSpawner : MonoBehaviour
 
     private IEnumerator Start()
     {
+        if (itemData == null)
+        {
+            Debug.LogError("ItemData is null!");
+            yield break;
+        }
+
+        if (itemData.worldPrefab == null)
+        {
+            Debug.LogError("worldPrefab is null!");
+            yield break;
+        }
+
         var handle = itemData.worldPrefab.InstantiateAsync(
             transform.position, Quaternion.identity);
 
